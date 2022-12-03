@@ -1,0 +1,56 @@
+
+.Expense-Item-Container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border-radius: 12px;
+    background-color: #19c2d8;
+}
+
+.Expense-Item-Date {
+    color: #160202;
+    font-size: 2.5rem;
+    flex: 1;
+    margin: 0 1rem;
+
+}
+
+.Expense-Item-Description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+    flex-flow: column-reverse;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.Expense-Item-Price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #40005d;
+    border: 1px solid white;
+    border-radius: 12px;
+}
+
+@media (min-width: 580px) {
+.Expense-Item-Description{
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+  }
+
+.Expense-Item-Date {
+    font-size: 1.25rem;
+  }
+
+.Expense-Item-Price {
+    font-size: 1.25rem;
+    padding: 0.5rem 1.5rem;
+  }
+}
