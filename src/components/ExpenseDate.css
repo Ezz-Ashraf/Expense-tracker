@@ -1,0 +1,21 @@
+
+.Expense-Item-Date {
+    display: flex;
+    flex-direction: column;
+    width: 5.5rem;
+    height: 5.5rem;
+    border: 1px solid #ececec;
+    background-color: #2a2a2a;
+    color: white;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Expense-Date-text-small {
+    font-size: 1rem;
+}
+
+.Expense-Date-text-latge {
+    font-size: 1.25rem;
+}
