@@ -1,9 +1,10 @@
-import  { useState } from 'react';
+import { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
+  //Handling States seperately
 
-  const [ EnteredDescription , setDescription] = useState('');
+  /*const [ EnteredDescription , setDescription] = useState('');
   const [ EnteredDate , setDate] = useState('');
   const [ EnteredPrice , setPrice] = useState('');
 
@@ -40,6 +41,63 @@ const ExpenseForm = () => {
       <div className="new-expense__control">
         <label>Expense Price</label>
         <input type="number" min="0.1" step="0.3" onChange={priceChangeHandler}></input>
+      </div>
+    </form>
+  );*/
+
+  //Handling States using one useState
+
+  const [EnteredData, setData] = useState({
+    description: "",
+    date: "",
+    price: "",
+  });
+
+  const descriptionChangeHandler = (event) => {
+    setData({
+      ...EnteredData,
+      description: event.target.value,
+    });
+    console.log("Description = " + EnteredData.description);
+  };
+
+  const dateChangeHandler = (event) => {
+    setData({ ...EnteredData, date: event.target.value });
+    console.log("Date = " + EnteredData.date);
+  };
+
+  const priceChangeHandler = (event) => {
+    setData({ ...EnteredData, price: event.target.value });
+    console.log("Price = " + EnteredData.price);
+  };
+
+  return (
+    <form className="new-expense__controls">
+      <div className="new-expense__control">
+        <label>Expense Description</label>
+        <input
+          type="text"
+          placeholder="Telephone Tax"
+          onChange={descriptionChangeHandler}
+        ></input>
+      </div>
+      <div className="new-expense__control">
+        <label>Expense Date</label>
+        <input
+          type="date"
+          min="2020-01-01"
+          max="2024-12-31"
+          onChange={dateChangeHandler}
+        ></input>
+      </div>
+      <div className="new-expense__control">
+        <label>Expense Price</label>
+        <input
+          type="number"
+          min="0.1"
+          step="0.3"
+          onChange={priceChangeHandler}
+        ></input>
       </div>
     </form>
   );
