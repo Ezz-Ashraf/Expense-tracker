@@ -54,10 +54,16 @@ const ExpenseForm = () => {
   });
 
   const descriptionChangeHandler = (event) => {
-    setData({
-      ...EnteredData,
-      description: event.target.value,
-    });
+    // setData({
+    //   ...EnteredData,
+    //   description: event.target.value,
+    // });
+    setData((prevState) =>{
+      return {
+          ...EnteredData,
+          description: event.target.value,
+        }
+    })
     console.log("Description = " + EnteredData.description);
   };
 
@@ -71,14 +77,29 @@ const ExpenseForm = () => {
     console.log("Price = " + EnteredData.price);
   };
 
+const submitHandler =(event) => {
+  event.preventDefault()
+  const expenseData = EnteredData
+  expenseData.date =new Date(expenseData.date)
+  console.log(expenseData)
+   setData((prevState) =>{
+    return {
+      price:'',
+      date:'',
+      description:''
+    }
+   });
+}
+
   return (
-    <form className="new-expense__controls">
+    <form className="new-expense__controls" onSubmit={submitHandler}>
       <div className="new-expense__control">
         <label>Expense Description</label>
         <input
           type="text"
           placeholder="Telephone Tax"
           onChange={descriptionChangeHandler}
+          value={EnteredData.description}
         ></input>
       </div>
       <div className="new-expense__control">
@@ -88,6 +109,7 @@ const ExpenseForm = () => {
           min="2020-01-01"
           max="2024-12-31"
           onChange={dateChangeHandler}
+          value={EnteredData.date}
         ></input>
       </div>
       <div className="new-expense__control">
@@ -97,8 +119,10 @@ const ExpenseForm = () => {
           min="0.1"
           step="0.3"
           onChange={priceChangeHandler}
+          value={EnteredData.price}
         ></input>
       </div>
+      <button type="submit">submit</button>
     </form>
   );
 };
