@@ -1,12 +1,14 @@
 import './NewExpense.css'
 import ExpenseForm from './ExpenseForm'
 
-const NewExpense = () => {
+const NewExpense = (props) => {
 
-
+const ExpenseFormHandler=(expenseData) =>{
+props.onAddExpenseHandler(expenseData)
+}
 return (
     <div className='new-expense'>
-<ExpenseForm></ExpenseForm>
+<ExpenseForm onExpenseFormHandler={ExpenseFormHandler}></ExpenseForm>
     </div>
 )
 

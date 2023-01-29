@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //Handling States seperately
 
   /*const [ EnteredDescription , setDescription] = useState('');
@@ -82,6 +82,7 @@ const submitHandler =(event) => {
   const expenseData = EnteredData
   expenseData.date =new Date(expenseData.date)
   console.log(expenseData)
+  props.onExpenseFormHandler(expenseData)
    setData((prevState) =>{
     return {
       price:'',

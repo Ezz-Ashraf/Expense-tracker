@@ -27,10 +27,16 @@ function App() {
       price:202.75
     }
   ]
+
+  const changeExpensesHandler =(enteredExpenseData) =>{
+const expenseData= {...enteredExpenseData , id:'e'+Math.random()}
+expenses.push(expenseData)
+console.log(expenses[expenses.length -1])
+  }
   return (
     <div>
  <h1>Hello World</h1>
-<Expenses expenses ={expenses}/>
+<Expenses expenses ={expenses} onChangeExpenses={changeExpensesHandler}/>
   </div>
   );
 }
