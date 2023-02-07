@@ -58,12 +58,12 @@ const ExpenseForm = (props) => {
     //   ...EnteredData,
     //   description: event.target.value,
     // });
-    setData((prevState) =>{
+    setData((prevState) => {
       return {
-          ...EnteredData,
-          description: event.target.value,
-        }
-    })
+        ...EnteredData,
+        description: event.target.value,
+      };
+    });
     console.log("Description = " + EnteredData.description);
   };
 
@@ -77,20 +77,20 @@ const ExpenseForm = (props) => {
     console.log("Price = " + EnteredData.price);
   };
 
-const submitHandler =(event) => {
-  event.preventDefault()
-  const expenseData = EnteredData
-  expenseData.date =new Date(expenseData.date)
-  console.log(expenseData)
-  props.onExpenseFormHandler(expenseData)
-   setData((prevState) =>{
-    return {
-      price:'',
-      date:'',
-      description:''
-    }
-   });
-}
+  const submitHandler = (event) => {
+    event.preventDefault();
+    const expenseData = EnteredData;
+    expenseData.date = new Date(expenseData.date);
+    console.log(expenseData);
+    props.onExpenseFormHandler(expenseData);
+    setData((prevState) => {
+      return {
+        price: "",
+        date: "",
+        description: "",
+      };
+    });
+  };
 
   return (
     <form className="new-expense__controls" onSubmit={submitHandler}>
