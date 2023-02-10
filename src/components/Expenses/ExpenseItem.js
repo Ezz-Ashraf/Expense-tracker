@@ -8,9 +8,9 @@ function ExpenseItem(props) {
   const purchaseHandler = () => {
     setDescription("updated state");
   };
-  useEffect(() => {
-    setDescription(props.description);
-  }, [props.description]);
+  // useEffect(() => {
+  //   setDescription(props.description);
+  // }, [props.description]);
 
   return (
     <Card className="Expense-Item-Container">
