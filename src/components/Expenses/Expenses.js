@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import NewExpense from "../NewExpense/NewExpense";
 import ExpensesFilter from "./ExpenseFilter";
+import ExpensesList from "./expensesList";
 import "./Expenses.css";
 
 function Expenses(props) {
@@ -20,20 +20,10 @@ function Expenses(props) {
  
   };
 
-let expensesContent =<div>No Expenses Available</div>
-if(filteredExpenses.length>0)
-{
-  expensesContent =    filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            date={expense.date}
-            description={expense.description}
-            price={expense.price}
-          />
-        ))
-}
+
 
   return (
+    <li>
     <Card className="expenses">
       <NewExpense onAddExpenseHandler={ExpenseHandler}></NewExpense>
       <ExpensesFilter
@@ -41,8 +31,10 @@ if(filteredExpenses.length>0)
         onChangeFilter={FilterHandler}
       />
 
+<ExpensesList filteredExpenses={filteredExpenses}/>
+
       {
-  expensesContent
+
      
         /* <ExpenseItem date = {props.expenses[0].date} id={props.expenses[0].id}description ={props.expenses[0].description} price ={props.expenses[0].price}></ExpenseItem>
  <ExpenseItem date =  {props.expenses[1].date} id= {props.expenses[1].id} description = {props.expenses[1].description} price = {props.expenses[1].price}></ExpenseItem>
@@ -50,6 +42,7 @@ if(filteredExpenses.length>0)
  <ExpenseItem  date ={props.expenses[3].date} id = {props.expenses[3].id} description = {props.expenses[3].description} price = {props.expenses[3].price}></ExpenseItem> */
       }
     </Card>
+    </li>
   );
 }
 

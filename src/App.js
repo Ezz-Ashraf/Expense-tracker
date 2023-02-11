@@ -33,7 +33,7 @@ function App() {
   const [expenses, setExpenses] = useState(initialExpenses);
 
   const changeExpensesHandler = (enteredExpenseData) => {
-    const expenseData = { ...enteredExpenseData, id: "e6" };
+    const expenseData = { ...enteredExpenseData, id: "e"+Math.random() };
     console.log(expenseData);
     setExpenses((prevExpenses) => {
       console.log(prevExpenses);

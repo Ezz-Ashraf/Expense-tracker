@@ -2,6 +2,14 @@ import { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
+  const [formVisibility ,setFormVisibility] =useState(false)
+
+  const setVisibilityTrue = ((prevState) =>{
+    return setFormVisibility(true)
+  })
+  const setVisibilityFalse = ((prevState) =>{
+    return setFormVisibility(false)
+  })
   //Handling States seperately
 
   /*const [ EnteredDescription , setDescription] = useState('');
@@ -79,6 +87,7 @@ const ExpenseForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    setVisibilityFalse()
     const expenseData = EnteredData;
     expenseData.date = new Date(expenseData.date);
     console.log(expenseData);
@@ -91,7 +100,7 @@ const ExpenseForm = (props) => {
       };
     });
   };
-
+if(formVisibility){
   return (
     <form className="new-expense__controls" onSubmit={submitHandler}>
       <div className="new-expense__control">
@@ -123,9 +132,11 @@ const ExpenseForm = (props) => {
           value={EnteredData.price}
         ></input>
       </div>
-      <button type="submit">submit</button>
+      <button type="submit" >submit</button>
+      <button  onClick={setVisibilityFalse}>Cancel</button>
     </form>
-  );
+  ); }
+  return (<button onClick={setVisibilityTrue}>Open Form</button>)
 };
 
 export default ExpenseForm;
