@@ -20,6 +20,19 @@ function Expenses(props) {
  
   };
 
+let expensesContent =<div>No Expenses Available</div>
+if(filteredExpenses.length>0)
+{
+  expensesContent =    filteredExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            date={expense.date}
+            description={expense.description}
+            price={expense.price}
+          />
+        ))
+}
+
   return (
     <Card className="expenses">
       <NewExpense onAddExpenseHandler={ExpenseHandler}></NewExpense>
@@ -29,15 +42,8 @@ function Expenses(props) {
       />
 
       {
-  
-        filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            date={expense.date}
-            description={expense.description}
-            price={expense.price}
-          />
-        ))
+  expensesContent
+     
         /* <ExpenseItem date = {props.expenses[0].date} id={props.expenses[0].id}description ={props.expenses[0].description} price ={props.expenses[0].price}></ExpenseItem>
  <ExpenseItem date =  {props.expenses[1].date} id= {props.expenses[1].id} description = {props.expenses[1].description} price = {props.expenses[1].price}></ExpenseItem>
  <ExpenseItem  date = {props.expenses[2].date} id ={props.expenses[2].id} description = {props.expenses[2].description} price = {props.expenses[2].price}></ExpenseItem>
