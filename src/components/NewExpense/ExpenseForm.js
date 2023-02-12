@@ -81,7 +81,7 @@ const ExpenseForm = (props) => {
   };
 
   const priceChangeHandler = (event) => {
-    setData({ ...EnteredData, price: event.target.value });
+    setData({ ...EnteredData, price: +event.target.value });
     console.log("Price = " + EnteredData.price);
   };
 
